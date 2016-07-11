@@ -15,8 +15,8 @@ public class OI {
 		JOYSTICK_gamepad = new Joystick(2);
 	
 	public static final Joystick
-		JOYSTICK_right = new Joystick(3),
-		JOYSTICK_left = new Joystick(4);
+		JOYSTICK_right = new Joystick(1),
+		JOYSTICK_left = new Joystick(0);
 
 	public static final JoystickButton
 		BUTTON_shiftL = new JoystickButton(JOYSTICK_left, 1),

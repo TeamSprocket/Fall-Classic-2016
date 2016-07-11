@@ -4,7 +4,23 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team3473.robot.RobotMap;
 
 public class Drivetrain extends Subsystem {
-		public void initDefaultCommand(){
+
+	@Override
+	protected void initDefaultCommand() {
+	}
+	
+	public static void setLeft(double speed){
+		RobotMap.TALON_left1.set(speed);
+		RobotMap.TALON_left2.set(speed);
+		RobotMap.TALON_mid1.set(speed);
+	}
+	
+	public static void setRight(double speed){
+		RobotMap.TALON_right1.set(speed);
+		RobotMap.TALON_right2.set(speed);
+		RobotMap.TALON_mid2.set(speed);
+	}
+		/*public void initDefaultCommand(){
 		}
 		
 		public static void setTopRight(double speed){
@@ -38,5 +54,5 @@ public class Drivetrain extends Subsystem {
 			double voltage;
 			voltage = speed * Math.sin(angle + Math.PI / 4) - changespeed;
 			return voltage;
-		}		
+		}		*/
 }

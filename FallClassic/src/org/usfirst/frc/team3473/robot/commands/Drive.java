@@ -10,7 +10,7 @@ public class Drive extends Command {
 		
 	}
 	protected void execute() {
-		double speed = OI.JOYSTICK_left.getY();
+		/*double speed = OI.JOYSTICK_left.getY();
 		double angle = OI.JOYSTICK_right.getDirectionRadians();
 		double changespeed = 1.0;
 		double v2 = Drivetrain.topRightCalc(speed, angle, changespeed);
@@ -21,7 +21,13 @@ public class Drive extends Command {
 		Drivetrain.setTopRight(v2);
 		Drivetrain.setTopLeft(v1);
 		Drivetrain.setBackLeft(v3);
-		Drivetrain.setBackRight(v4);
+		Drivetrain.setBackRight(v4);*/
+		
+		double speedleft = OI.JOYSTICK_left.getY();
+		double speedright = OI.JOYSTICK_right.getY();
+		
+		Drivetrain.setLeft(speedleft);
+		Drivetrain.setRight(-speedright);
 	}
 	protected boolean isFinished() {
 		return false;

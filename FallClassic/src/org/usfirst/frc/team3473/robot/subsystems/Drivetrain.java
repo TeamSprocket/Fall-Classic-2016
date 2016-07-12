@@ -6,6 +6,7 @@ import org.usfirst.frc.team3473.robot.RobotMap;
 public class Drivetrain extends Subsystem {
 	
 	private static final double reducePercentage = 0.5;
+	private static final double error = 0.05;
 
 	@Override
 	protected void initDefaultCommand() {
@@ -18,9 +19,30 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public static void setRight(double speed){
-		RobotMap.TALON_right1.set(speed * reducePercentage);
-		RobotMap.TALON_right2.set(speed * reducePercentage);
-		RobotMap.TALON_mid2.set(speed * reducePercentage);
+		RobotMap.TALON_right1.set(-speed * reducePercentage);
+		RobotMap.TALON_right2.set(-speed * reducePercentage);
+		RobotMap.TALON_mid2.set(-speed * reducePercentage);
+	}
+	
+	public static void set(double wheel, double throttle, boolean turnOnCenter) {
+		if(Math.abs(wheel) < error)
+			wheel = 0;
+		if(Math.abs(throttle) < error)
+			throttle = 0;
+		if(turnOnCenter) {
+			setLeft(wheel);
+			setRight(-wheel);
+		}
+		else if(wheel == 0.0) {
+			setLeft(-throttle);
+			setRight(-throttle);
+		}
+		else {
+			double speedLeft = -throttle + 0.8 * wheel;
+			double speedRight = -throttle - 0.8 * wheel;
+			setLeft(speedLeft);
+			setRight(speedRight);
+		}
 	}
 		/*public void initDefaultCommand(){
 		}

@@ -3,6 +3,7 @@ package org.usfirst.frc.team3473.robot.commands;
 import org.usfirst.frc.team3473.robot.OI;
 import org.usfirst.frc.team3473.robot.subsystems.Drivetrain;
 
+import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class Drive extends Command {
@@ -23,11 +24,7 @@ public class Drive extends Command {
 		Drivetrain.setBackLeft(v3);
 		Drivetrain.setBackRight(v4);*/
 		
-		double speedleft = OI.JOYSTICK_left.getY();
-		double speedright = OI.JOYSTICK_right.getY();
-		
-		Drivetrain.setLeft(speedleft);
-		Drivetrain.setRight(-speedright);
+		Drivetrain.set(OI.JOYSTICK_wheel.getX(), OI.JOYSTICK_throttle.getY(), OI.JOYSTICK_wheel.getRawButton(6));
 	}
 	protected boolean isFinished() {
 		return false;

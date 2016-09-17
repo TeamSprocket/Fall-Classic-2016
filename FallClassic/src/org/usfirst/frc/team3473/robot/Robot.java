@@ -9,6 +9,7 @@ import org.usfirst.frc.team3473.robot.commands.ExampleCommand;
 import org.usfirst.frc.team3473.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc.team3473.robot.commands.Drive;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -24,6 +25,7 @@ public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
     SendableChooser chooser;
+    Drive drive = new Drive();
 
     /**
      * This function is run when the robot is first started up and should be
@@ -35,6 +37,8 @@ public class Robot extends IterativeRobot {
         chooser.addDefault("Default Auto", new ExampleCommand());
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
+        
+        RobotMap.init();
     }
 	
 	/**
@@ -97,6 +101,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        drive.start();
     }
     
     /**

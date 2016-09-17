@@ -3,6 +3,7 @@ package org.usfirst.frc.team3473.robot.commands;
 import org.usfirst.frc.team3473.robot.OI;
 import org.usfirst.frc.team3473.robot.subsystems.Drivetrain;
 
+import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class Drive extends Command {
@@ -10,24 +11,12 @@ public class Drive extends Command {
 		
 	}
 	protected void execute() {
-		/*double speed = OI.JOYSTICK_left.getY();
-		double angle = OI.JOYSTICK_right.getDirectionRadians();
-		double changespeed = 1.0;
-		double v2 = Drivetrain.topRightCalc(speed, angle, changespeed);
-		double v1 = Drivetrain.topLeftCalc(speed, angle, changespeed);
-		double v3 = Drivetrain.bottomLeftCalc(speed, angle, changespeed);
-		double v4 = Drivetrain.bottomRightCalc(speed, angle, changespeed);
-		//set motor speeds
-		Drivetrain.setTopRight(v2);
-		Drivetrain.setTopLeft(v1);
-		Drivetrain.setBackLeft(v3);
-		Drivetrain.setBackRight(v4);*/
-		
-		double speedleft = OI.JOYSTICK_left.getY();
-		double speedright = OI.JOYSTICK_right.getY();
+		//SPEED
+		double speedleft = OI.JOYSTICK_left.getY()/2;
+		double speedright = OI.JOYSTICK_left.getY()/2;
 		
 		Drivetrain.setLeft(speedleft);
-		Drivetrain.setRight(-speedright);
+		Drivetrain.setRight(speedright);
 	}
 	protected boolean isFinished() {
 		return false;

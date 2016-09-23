@@ -20,6 +20,15 @@ public class Drivetrain extends Subsystem {
 		RobotMap.TALON_right2.set(speed);
 		RobotMap.TALON_mid2.set(speed);
 	}
+	
+	public static void turnLeft(double speed) {
+		setLeft(-speed);
+		setRight(speed);
+	}
+	public static void turnRight(double speed) {
+		setLeft(speed);
+		setRight(-speed);
+	}
 		/*public void initDefaultCommand(){
 		}
 		

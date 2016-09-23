@@ -6,6 +6,9 @@ import org.usfirst.frc.team3473.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class Drive extends Command {
+	boolean isReverse = false; // the toggle state
+	boolean isPressingReverse = false; // whether the button is currently being pressed
+	
 	protected void initialize() {
 		
 	}
@@ -25,9 +28,23 @@ public class Drive extends Command {
 		
 		double speedleft = OI.JOYSTICK_left.getY();
 		double speedright = OI.JOYSTICK_right.getY();
+		boolean isReversePressed = OI.JOYSTICK_right.getRawButton(11);
 		
-		Drivetrain.setLeft(speedleft);
-		Drivetrain.setRight(-speedright);
+		if(!isReversePressed)
+			isPressingReverse = false;
+		if(isReversePressed && !isPressingReverse) {
+			isReverse = !isReverse;
+			isPressingReverse = true;
+		}
+		
+		if(isReverse) {
+			Drivetrain.setLeft(-speedleft);
+			Drivetrain.setRight(speedright);
+		}
+		else {
+			Drivetrain.setLeft(speedleft);
+			Drivetrain.setRight(-speedright);
+		}
 	}
 	protected boolean isFinished() {
 		return false;

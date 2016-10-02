@@ -3,13 +3,14 @@ package org.usfirst.frc.team3473.robot;
 
 import org.usfirst.frc.team3473.robot.commands.Drive;
 import org.usfirst.frc.team3473.robot.commands.ExampleCommand;
+import org.usfirst.frc.team3473.robot.commands.MoveIntake;
+import org.usfirst.frc.team3473.robot.commands.MoveShooter;
 import org.usfirst.frc.team3473.robot.subsystems.ExampleSubsystem;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -26,6 +27,8 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
 	Drive drive;
+	MoveIntake intake;
+	MoveShooter shoot;
     Command autonomousCommand;
     SendableChooser chooser;
 
@@ -42,6 +45,8 @@ public class Robot extends IterativeRobot {
         
         RobotMap.init();
         drive = new Drive();
+        intake = new MoveIntake();
+        shoot = new MoveShooter();
     }
 	
 	/**
@@ -105,6 +110,8 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         drive.start();
+        intake.start();
+        shoot.start();
     }
     
     /**

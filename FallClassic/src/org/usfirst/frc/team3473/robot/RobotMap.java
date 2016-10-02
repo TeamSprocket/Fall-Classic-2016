@@ -1,8 +1,9 @@
 package org.usfirst.frc.team3473.robot;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.Servo;
 
 public class RobotMap {
     public static AnalogInput SENSOR_pot;
@@ -15,10 +16,13 @@ public class RobotMap {
     public static CANTalon TALON_left2;
     public static CANTalon TALON_mid1;
     public static CANTalon TALON_mid2;
-    public static CANTalon TALON_elevator;
-    public static CANTalon TALON_intakeTop;
-    public static CANTalon TALON_intakeBottom;
-    public static CANTalon TALON_intakeActuation;
+    public static CANTalon TALON_intakeArm;
+    public static CANTalon TALON_intakeLeft;
+    public static CANTalon TALON_intakeRight;
+    public static CANTalon TALON_shooterArm;
+    public static CANTalon TALON_shooterLeft;
+    public static CANTalon TALON_shooterRight;
+    public static Servo servo;
     
     public static void init() {
     	//SENSOR_pot = new AnalogInput(Phannels.PORT_pot);
@@ -28,10 +32,14 @@ public class RobotMap {
     	TALON_left2 = new CANTalon(Phannels.PORT_leftDrivebase2);
     	//SENSOR_limitElevatorDown = new DigitalInput(Phannels.PORT_limitElevatorDown);
     	//SENSOR_limitElevatorUp = new DigitalInput(Phannels.PORT_limitElevatorUp);
-    	TALON_intakeTop = new CANTalon(Phannels.PORT_intakeTop);
-    	TALON_intakeBottom = new CANTalon(Phannels.PORT_intakeBottom);
-    	TALON_intakeActuation = new CANTalon(Phannels.PORT_intakeActuation);
     	TALON_mid1 = new CANTalon(Phannels.PORT_midDrivebase1);
     	TALON_mid2 = new CANTalon(Phannels.PORT_midDrivebase2);
+    	TALON_intakeArm = new CANTalon(Phannels.PORT_intakeArm);
+    	TALON_intakeLeft = new CANTalon(Phannels.PORT_intakeLeft);
+    	TALON_intakeRight = new CANTalon(Phannels.PORT_intakeRight);
+    	TALON_shooterArm = new CANTalon(Phannels.PORT_shooterArm);
+    	TALON_shooterLeft = new CANTalon(Phannels.PORT_shooterLeft);
+    	TALON_shooterRight = new CANTalon(Phannels.PORT_shooterRight);
+    	servo = new Servo(Phannels.PORT_servo);
     }
 }

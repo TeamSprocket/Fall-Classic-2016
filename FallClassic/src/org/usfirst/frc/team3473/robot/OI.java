@@ -25,6 +25,8 @@ public class OI {
 	public static final JoystickButton
 		BUTTON_shiftL = new JoystickButton(JOYSTICK_left, 1),
 		BUTTON_shiftR = new JoystickButton(JOYSTICK_right, 1),
+		BUTTON_toggleClick = new JoystickButton(JOYSTICK_left, 2),
+		BUTTON_toggleHold = new JoystickButton(JOYSTICK_right, 2),
 		//BUTTON_elevateUp = new JoystickButton(JOYSTICK_gamepad, 6),
 		//BUTTON_elevateDown = new JoystickButton(JOYSTICK_gamepad, 5),
 		BUTTON_intake = new JoystickButton(JOYSTICK_gamepad, 4),

@@ -25,7 +25,6 @@ public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
     SendableChooser chooser;
-    Drive drive = new Drive();
 
     /**
      * This function is run when the robot is first started up and should be
@@ -101,7 +100,6 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        drive.start();
     }
     
     /**

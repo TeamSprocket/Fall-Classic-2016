@@ -11,12 +11,27 @@ public class Drive extends Command {
 		
 	}
 	protected void execute() {
-		//SPEED
+		/*GENERIC
 		double speedleft = OI.JOYSTICK_left.getY()/2;
 		double speedright = OI.JOYSTICK_left.getY()/2;
 		
 		Drivetrain.setLeft(speedleft);
-		Drivetrain.setRight(speedright);
+		Drivetrain.setRight(speedright);*/
+		
+		//holding
+		double yAxisSpeed = OI.JOYSTICK_left.getY()/2;
+		double xAxisSpeed = OI.JOYSTICK_right.getX()/2;
+		
+		boolean pressed = true;
+		boolean isHeld = OI.BUTTON_toggleHold.get();
+		if(pressed == isHeld){
+			yAxisSpeed = -yAxisSpeed;
+			xAxisSpeed = -xAxisSpeed;
+		}
+		//holding
+		
+		Drivetrain.setLeft(yAxisSpeed + xAxisSpeed);
+		Drivetrain.setRight(yAxisSpeed + xAxisSpeed);
 	}
 	protected boolean isFinished() {
 		return false;

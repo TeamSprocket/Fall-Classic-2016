@@ -2,6 +2,7 @@ package org.usfirst.frc.team3473.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team3473.robot.RobotMap;
+import org.usfirst.frc.team3473.robot.OI;
 
 public class Drivetrain extends Subsystem {
 
@@ -19,5 +20,15 @@ public class Drivetrain extends Subsystem {
 		RobotMap.TALON_right1.set(speed);
 		RobotMap.TALON_right2.set(speed);
 		RobotMap.TALON_mid2.set(speed);
-	}		
+	}
+	
+	public static void drive(double speed, double turnAngle) {
+		if (Math.abs(turnAngle) < .1) {
+			setLeft(-speed);
+			setRight(-speed);
+		} else {
+			setLeft(turnAngle);
+			setRight(-turnAngle);
+		}
+	}
 }

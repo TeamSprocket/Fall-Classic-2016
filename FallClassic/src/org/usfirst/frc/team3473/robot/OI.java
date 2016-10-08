@@ -23,16 +23,12 @@ public class OI {
 		//uses JOYSICK_left
 	
 	public static final JoystickButton
-		BUTTON_shiftL = new JoystickButton(JOYSTICK_left, 1),
-		BUTTON_shiftR = new JoystickButton(JOYSTICK_right, 1),
+		//BUTTON_shiftL = new JoystickButton(JOYSTICK_left, 1),
+		//BUTTON_shiftR = new JoystickButton(JOYSTICK_right, 1),
 		BUTTON_toggleClick = new JoystickButton(JOYSTICK_left, 2),
 		BUTTON_toggleHold = new JoystickButton(JOYSTICK_right, 2),
-		//BUTTON_elevateUp = new JoystickButton(JOYSTICK_gamepad, 6),
-		//BUTTON_elevateDown = new JoystickButton(JOYSTICK_gamepad, 5),
-		BUTTON_intake = new JoystickButton(JOYSTICK_gamepad, 4),
-		BUTTON_driveIntake = new JoystickButton(JOYSTICK_gamepad, 3),
-		BUTTON_driveOuttake = new JoystickButton(JOYSTICK_gamepad, 2),
-		BUTTON_LStick = new JoystickButton(JOYSTICK_gamepad, 5),
-		BUTTON_RStick = new JoystickButton(JOYSTICK_gamepad, 6);
+		BUTTON_turnCenterLeft = new JoystickButton(JOYSTICK_right, 4),
+		BUTTON_turnCenterRight = new JoystickButton(JOYSTICK_right, 5);
+		
 }
 

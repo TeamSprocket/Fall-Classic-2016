@@ -10,8 +10,13 @@ public class Phannels {
 	public static int PORT_intakeActuation = 12;
 	public static int PORT_midDrivebase1 = 6;
 	public static int PORT_midDrivebase2 = 2;
+	public static int PORT_servo = 0;
+	public static int PORT_servo2 = 0;
+	public static int PORT_shooterLeft = 15;
+	public static int PORT_shooterRight = 16;
 	
 	//Analog
 	public static int PORT_pot = 2;
 	public static int PORT_pot2 = 3;
+	public static int PORT_gyro = 1;
 }

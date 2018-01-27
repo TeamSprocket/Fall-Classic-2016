@@ -3,16 +3,16 @@ package org.usfirst.frc.team3473.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
+import org.usfirst.frc.team3473.robot.OI;
 import org.usfirst.frc.team3473.robot.Robot;
+import org.usfirst.frc.team3473.robot.subsystems.ActuateSubsystem;
 
 /**
  *
  */
-public class ExampleCommand extends Command {
+public class Actuator extends Command {
 
-    public ExampleCommand() {
-        // Use requires() here to declare subsystem dependencies
-        requires(Robot.exampleSubsystem);
+    public Actuator() {
     }
 
     // Called just before this Command runs the first time
@@ -21,6 +21,15 @@ public class ExampleCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if(OI.BUTTON_elevateUp.get()){
+			ActuateSubsystem.actuate(1);
+		}
+		else if(OI.BUTTON_elevateDown.get()){
+			ActuateSubsystem.actuate(-1);
+		}
+		else{
+			ActuateSubsystem.actuate(0);
+		}
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -10,15 +10,15 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public static void setLeft(double speed){
-		RobotMap.TALON_left1.set(speed);
-		RobotMap.TALON_left2.set(speed);
-		RobotMap.TALON_mid1.set(speed);
+		RobotMap.TALON_leftFront.set(speed);
+		RobotMap.TALON_leftBack.set(speed);
+		RobotMap.TALON_rightMid.set(speed);
 	}
 	
 	public static void setRight(double speed){
-		RobotMap.TALON_right1.set(speed);
-		RobotMap.TALON_right2.set(speed);
-		RobotMap.TALON_mid2.set(speed);
+		RobotMap.TALON_rightFront.set(speed);
+		RobotMap.TALON_rightBack.set(speed);
+		RobotMap.TALON_leftMid.set(speed);
 	}
 	
 	public static void turnLeft(double speed) {
@@ -29,6 +29,8 @@ public class Drivetrain extends Subsystem {
 		setLeft(speed);
 		setRight(-speed);
 	}
+
+	
 		/*public void initDefaultCommand(){
 		}
 		

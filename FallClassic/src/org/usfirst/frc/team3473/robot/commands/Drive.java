@@ -28,7 +28,7 @@ public class Drive extends Command {
 		
 		double speedleft = OI.JOYSTICK_left.getY();
 		double speedright = OI.JOYSTICK_right.getY();
-		boolean isReversePressed = OI.JOYSTICK_right.getRawButton(11);
+		boolean isReversePressed = OI.JOYSTICK_right.getRawButton(1);
 		
 		if(!isReversePressed)
 			isPressingReverse = false;

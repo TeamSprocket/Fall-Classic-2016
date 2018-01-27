@@ -1,15 +1,15 @@
 
 package org.usfirst.frc.team3473.robot;
 
+import org.usfirst.frc.team3473.robot.commands.Actuator;
 import org.usfirst.frc.team3473.robot.commands.Drive;
-import org.usfirst.frc.team3473.robot.commands.ExampleCommand;
-import org.usfirst.frc.team3473.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team3473.robot.commands.IntakeOutakeShoot;
+import org.usfirst.frc.team3473.robot.subsystems.ActuateSubsystem;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -22,10 +22,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	public static final ActuateSubsystem exampleSubsystem = new ActuateSubsystem();
 	public static OI oi;
 
 	Drive drive;
+	Actuator actuator;
+	IntakeOutakeShoot intakeOutakeShoot;
     Command autonomousCommand;
     SendableChooser chooser;
 
@@ -36,12 +38,14 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
         chooser = new SendableChooser();
-        chooser.addDefault("Default Auto", new ExampleCommand());
+        chooser.addDefault("Default Auto", new IntakeOutakeShoot());
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
         
         RobotMap.init();
         drive = new Drive();
+        actuator = new Actuator();
+        intakeOutakeShoot = new IntakeOutakeShoot();
     }
 	
 	/**
@@ -105,6 +109,8 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         drive.start();
+        actuator.start();
+        intakeOutakeShoot.start();
     }
     
     /**
